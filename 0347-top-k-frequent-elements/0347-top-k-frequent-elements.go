@@ -13,9 +13,8 @@ func topKFrequent(nums []int, k int) []int {
     }
     // Iterate over the buckets in reverse order to get the most frequent k elements 
     for i := len(buckets) - 1; i >= 0; i-- {
-        if len(output) < k {
-            output = append(output, buckets[i]...) 
-        } else {
+        output = append(output, buckets[i]...) 
+        if len(output) == k {
             break
         }
     }
