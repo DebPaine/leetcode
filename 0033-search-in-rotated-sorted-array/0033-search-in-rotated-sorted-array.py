@@ -17,11 +17,13 @@ class Solution:
 
             if target == nums[m]:
                 return m
+            # If the left half is sorted, then we can find the element within it
             if nums[l] < nums[m]:
                 if nums[l] <= target <= nums[m]:
                     r = m - 1
                 else:
                     l = m + 1
+            # If the left half is not sorted, then the right half will be sorting and we can search there
             else:
                 if nums[m] <= target <= nums[r]:
                     l = m + 1
