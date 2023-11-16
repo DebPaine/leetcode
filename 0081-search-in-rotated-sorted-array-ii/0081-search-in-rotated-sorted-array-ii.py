@@ -1,7 +1,9 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:
         """
-        Time: O(logn), where n is len(nums)
+        Time: ~O((n/2)log(n/2)), where n is len(nums). n/2 since we keep reducing the 
+        search space using nums[l] == nums[m] == nums[r] and we enter this condition by
+        going through it every time we get duplicates. Still I am not sure about n/2.
         Space: O(1)
 
         Very similar to problem 33 (the first part). Just keep in mind of 
