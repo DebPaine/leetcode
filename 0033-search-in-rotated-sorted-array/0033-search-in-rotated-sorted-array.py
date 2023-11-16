@@ -1,7 +1,7 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         """
-        Time: O(n), where n is len(nums)
+        Time: O(logn), where n is len(nums)
         Space: O(1)
 
         Very similar to problem 153. We are first identifying which half of the array is sorted
@@ -18,7 +18,7 @@ class Solution:
             if target == nums[m]:
                 return m
             # If the left half is sorted, then we can find the element within it
-            if nums[l] < nums[m]:
+            if nums[l] <= nums[m]:   # can use < too since there are no duplicate elements in nums
                 if nums[l] <= target <= nums[m]:
                     r = m - 1
                 else:
