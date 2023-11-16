@@ -8,7 +8,8 @@ class Solution:
         Instead of the standard binary search of finding some target, we are basically eliminating a half 
         when we know that the half is sorted (is in increasing order). We then continue till we 
         reach a single element and exit the loop. We are eliminating one sorted half at a time since we already
-        know that the first element of the sorted half will be the smallest.
+        know that the first element of the sorted half will be the smallest. Also, descending elements in array
+        is not possible so don't get confused!
         """
         l, r = 0, len(nums)-1
         output = math.inf
