@@ -5,7 +5,9 @@ class Solution:
         Space: O(1)
 
         Very similar to problem 153. We are first identifying which half of the array is sorted
-        and then going through it and trying to find the target.
+        and then going through it and trying to find the target. Either the left or the right half 
+        will always be sorted as the pivot will fall in one of the halves, so the other half will
+        automatically be sorted.
         """
 
         l, r = 0, len(nums)-1
