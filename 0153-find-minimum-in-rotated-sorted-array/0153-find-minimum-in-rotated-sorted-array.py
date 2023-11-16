@@ -21,7 +21,7 @@ class Solution:
                 output = min(output, nums[l])
                 l = m + 1
             # If left is greater than or equal to mid, then the left half is not sorted and the right half is sorted
-            else:
+            else:  # nums[l] >= nums[r] since in while loop l <= r and we then break out of the loop 
                 output = min(output, nums[m])
                 r = m - 1
         return output
