@@ -4,13 +4,13 @@ type TimeMap struct {
 
 func Constructor() TimeMap {
     return TimeMap{
-        kvStore: make(map[string][]map[string]int),
+        kvStore: map[string][]map[string]int{},
     }
 }
 
 func (this *TimeMap) Set(key string, value string, timestamp int)  {
     if _, ok := this.kvStore[key]; !ok{
-        this.kvStore[key] = make([]map[string]int, 0)
+        this.kvStore[key] = []map[string]int{}
     }
     this.kvStore[key] = append(this.kvStore[key], map[string]int{value: timestamp})
 }
