@@ -5,7 +5,11 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Iterative solution
+        # Iterative solution 
+        """
+        Time: O(n), where n is the total no. of nodes present in LL
+        Space: O(1)
+        """
         # curr = head
         # prev = None
 
@@ -19,6 +23,10 @@ class Solution:
 
 
         # Recursive solution (try out visually, much easier to understand)
+        """
+        Time: O(n)
+        Space: O(n), since we are using the call stack for recursion
+        """
         if not head:   # for scenario where user enters empty or null linked list
             return None
         if not head.next:   # for scenario where we reach the end of a linked list
