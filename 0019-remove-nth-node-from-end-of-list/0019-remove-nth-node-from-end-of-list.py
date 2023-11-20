@@ -13,7 +13,7 @@ class Solution:
         # start at dummy so that we end up reaching the node before the one we want to delete,
         # and it helps us in edge cases like when there is only one node in LL
         left = dummy  
-        right = dummy   # can use right = head, but then we would have to use while right below
+        right = dummy   # can use right = head, but then we would have to use [while right] below
 
         for _ in range(n):
             right = right.next
