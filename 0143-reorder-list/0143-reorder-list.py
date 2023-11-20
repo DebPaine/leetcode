@@ -7,8 +7,7 @@ class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
         Do not return anything, modify head in-place instead.
-        """
-        """
+        
         Time: O(n), where is the total no. of nodes present in LL
         Space: O(1)
         """
