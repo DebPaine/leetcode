@@ -11,7 +11,7 @@ class Solution:
 
         This problem is easy, but figuring out the edge cases is a bit tricky. There are a 
         couple of edge cases: the length of the LLs are different, and if we have a carry (in between 
-        the LLs or at then end, then we have to add a new node with val as carry).
+        the LLs or at the end, then we have to add a new node with val as carry).
         """
         dummy = ListNode()
         curr = dummy
