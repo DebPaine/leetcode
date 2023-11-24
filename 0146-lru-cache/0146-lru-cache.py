@@ -1,6 +1,6 @@
 class DoublyLLNode:
     def __init__(self, key, val, next=None, prev=None):
-        self.key = key
+        self.key = key  # we have to store both key and value since we it will be easier to delete from cache
         self.val = val
         self.next = next
         self.prev = prev
