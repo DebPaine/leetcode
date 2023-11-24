@@ -15,7 +15,8 @@ class LRUCache:
     we need a hashmap (for O(1) access) and a doubly LL (to maintain the order of the nodes and to 
     get the LRU).
     2. We need to add two functions: one to remove any node from LL, and one to add the node to MRU.
-    3. Whenever we get() a node (if it's available in cache), or we put() a value in cache, we have to remove the node and add to MRU. Even in put() where we can just update the value of the node, we are still 
+    3. Whenever we get() a node (if it's available in cache), or we put() a value in cache, we have to 
+    remove the node and add to MRU. Even in put() where we can just update the value of the node, we are still 
     removing it since the code is easier and more consistent to work with.
     4. We are checking for capacity after we put() a new node since if we check before adding, then the code 
     becomes tedious. 
