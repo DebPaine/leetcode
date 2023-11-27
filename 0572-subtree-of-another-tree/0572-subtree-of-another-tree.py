@@ -8,9 +8,12 @@ class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         """
         Time: O(s*t), where s is the no. of nodes in root and t is the no. of nodes in t
-        Space: O(s*t) worst case, else O(log(s*t))
+        Space: O(max(s,t)) worst case, else O(log(max(s,t)))
 
         This is an extension of 100. Same Tree problem
+        We are first going through each node in root and comparing it with subRoot. We then check if subRoot
+        is a subTree of root or not. If it's not, then we go to the left and right subtrees of root and 
+        start comparing again with subRoot if it's subtree or not and we keep doing this recursively. 
         """
         # Check all the base cases, it can be simplified but wrote it explicitly for better understanding
         if not root and not subRoot:  # if both root and subRoot are None, then they subRoot is subTree
