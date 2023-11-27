@@ -6,6 +6,10 @@
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        """
+        Time: O(n), where n is the number of nodes in the tree
+        Space: O(n) worst case if tree is LL, else can be O(logn)
+        """
         # Check if tree is empty
         if not root:
             return 0
