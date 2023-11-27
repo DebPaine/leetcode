@@ -10,9 +10,6 @@ class Solution:
         Time: O(n), where n is the number of nodes in the tree
         Space: O(n) if tree is LL, else O(logn) is tree is balanced
         """
-        if root is None:
-            return True
-
         balanced = True
 
         def dfs(node):
