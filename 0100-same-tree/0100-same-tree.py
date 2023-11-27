@@ -9,6 +9,8 @@ class Solution:
         """
         Time: O(p*q)
         Space: O(p*q) worst case if both the trees are LL, else O(log(p*q) if they are balanced 
+        
+        The only trick here is to get the three base cases right, otherwise it's easy as we only have to go through the nodes
         """
         def dfs(t1, t2):
             # If t1 and t2 are both None, then they are the same so we return True
