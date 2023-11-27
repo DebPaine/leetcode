@@ -11,9 +11,6 @@ class Solution:
         Space: O(n) worst case if tree is LL, else can be O(logn)
         """
         # Check if tree is empty
-        if not root:
-            return 0
-
         diameter = 0
 
         def dfs(node):
