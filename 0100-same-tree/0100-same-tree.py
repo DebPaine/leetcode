@@ -8,7 +8,7 @@ class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         """
         Time: O(p*q)
-        Space: O(p*q) worst case if both the trees are LL, else O(log(p*q) if they are balanced 
+        Space: O(max(p,q)) worst case if both the trees are LL, else O(log(max(p,q))) if they are balanced 
         
         The only trick here is to get the three base cases right, otherwise it's easy as we only have to go through the nodes
         """
