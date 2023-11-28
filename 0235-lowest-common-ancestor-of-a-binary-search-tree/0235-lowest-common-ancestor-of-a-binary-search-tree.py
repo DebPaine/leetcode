@@ -20,7 +20,6 @@ class Solution:
         # Recursive DFS
         # if not root:
         #     return None
-
         # # p < q  or q < p, both can be the inputs
         # if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
         #     return root
@@ -35,7 +34,6 @@ class Solution:
         # Iterative DFS (without stack)
         if not root:
             return None
-
         while root:
             if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
                 return root
