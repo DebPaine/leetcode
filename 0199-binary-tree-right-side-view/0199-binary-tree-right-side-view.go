@@ -17,7 +17,7 @@ func rightSideView(root *TreeNode) []int {
 
     for len(queue) > 0 {
         var rightSideVal int 
-        for range queue {
+        for _, _ = range queue {
             node := queue[0]
             queue = queue[1:]
             rightSideVal = node.Val
