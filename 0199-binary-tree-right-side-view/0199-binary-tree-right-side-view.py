@@ -6,6 +6,12 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        """
+        Time: O(n), where n is the no. of nodes in the tree
+        Space: O(max(width)), as we need to store all the nodes in a level while doing BFS
+
+        Basically, it's just a BFS and we are always taking the rightmost value for every level and appending to output
+        """
         if root is None:
             return root
         
