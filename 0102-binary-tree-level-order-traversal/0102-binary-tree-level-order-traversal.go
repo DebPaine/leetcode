@@ -16,8 +16,8 @@ func (q *Queue) dequeue () TreeNode {
     return poppedValue
 }
 
-func (q *Queue) enqueue (node TreeNode) {
-    q.list = append(q.list, node)
+func (q *Queue) enqueue (node *TreeNode) {
+    q.list = append(q.list, *node)
 }
 
 func levelOrder(root *TreeNode) [][]int {
@@ -27,7 +27,7 @@ func levelOrder(root *TreeNode) [][]int {
     
     var output [][]int
     q := &Queue{}
-    q.enqueue(*root)
+    q.enqueue(root)
 
     for len(q.list) > 0 {
         level := []int{}
@@ -35,10 +35,10 @@ func levelOrder(root *TreeNode) [][]int {
             node := q.dequeue()
             level = append(level, node.Val)
             if node.Left != nil {
-                q.enqueue(*node.Left)
+                q.enqueue(node.Left)
             }
             if node.Right != nil {
-                q.enqueue(*node.Right)
+                q.enqueue(node.Right)
             }
         }
         output = append(output, level)
