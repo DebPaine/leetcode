@@ -17,7 +17,6 @@ func dfs(node *TreeNode, maxVal float64, count *int) {
     if node == nil {
         return 
     }
-
     if float64(node.Val) >= maxVal {
         *count++
     }
