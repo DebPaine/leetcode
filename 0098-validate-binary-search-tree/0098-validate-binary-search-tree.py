@@ -9,6 +9,9 @@ class Solution:
         """
         Time: O(n), where n is the number of nodes in the tree
         Space: O(n), if bst is like LL, else O(logn) if bst is balanced
+        
+        Instead of comparing current node's val with left and right children, we can just keep updating the 
+        lower and upper boundaries of current node's val.
         """
         def dfs(node, lower, upper):
             if not node:  # a null node is a valid BST
