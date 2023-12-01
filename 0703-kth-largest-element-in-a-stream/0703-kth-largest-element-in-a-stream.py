@@ -4,6 +4,10 @@ class KthLargest:
         """
         Time: O(n-k)*log(n)
         Space: O(n)
+
+        Basically, we convert array into a min heap. Then we keep popping the min element 
+        from the heap till we are left with k elements. So, we are left with the top k elements.
+        The top element will the smallest element in minHeap which has k largest elements.
         """
         self.k = k
         self.minHeap = nums
