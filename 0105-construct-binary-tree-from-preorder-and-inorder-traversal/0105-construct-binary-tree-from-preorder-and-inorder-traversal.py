@@ -9,6 +9,10 @@ class Solution:
         """
         Time: O(n) where n is the len(preorder) or len(inorder) since both are same length
         Space: O(n) due to inorder_map and recursion stack 
+        
+        The first value of preorder will always be the root of a subtree. We then have to find this value in 
+        preorder, which will help us know how big are the left and right subtrees. We can then use this to see
+        the sizes of left and right subtrees in preorder, which will tell us the roots of the left and right subtrees.
         """
         inorder_map = {val: i for i, val in enumerate(inorder)}
 
