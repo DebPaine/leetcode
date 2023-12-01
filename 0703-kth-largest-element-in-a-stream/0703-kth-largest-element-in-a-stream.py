@@ -13,7 +13,7 @@ class KthLargest:
         self.minHeap = nums
         heapq.heapify(self.minHeap)  # O(n) time, we have to first convert the array into heap first
         # The below lines improve the efficiency since are maintaining a minHeap with size k. Otherwise, 
-        # out add method will become inefficient as we would be pushing to the entire nums, and time would be 
+        # the add method will become inefficient as we would be pushing to the entire nums, and time would be 
         # O(logn) instead of O(logk)
         while len(self.minHeap) > self.k:  # O(n-k)*O(logn)
             heapq.heappop(self.minHeap)  # O(logn) time, pops the min value from the heap
