@@ -25,4 +25,4 @@ class Solution:
         # Keep popping the smallest element till we are left with k elements, which will be the k largest ones
         while len(nums) > k:  # O(n-k) time
             heapq.heappop(nums)  # O(logn) time, pop smallest element
-        return nums[0]  # the first element is the smallest element out of k elements, so overall it's k largest
+        return nums[0]  # the first element is the smallest element out of k largest elements, so overall it's k largest
