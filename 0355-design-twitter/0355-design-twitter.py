@@ -7,7 +7,8 @@ class Twitter:
     global counter for tweet to see which tweet has been tweeted first and in which order. We then take this tweets and
     heapify it. We use a max heap to efficiently get the top 10 recent tweets and get the tweet IDs.
     
-    Instead of heap, we can try to just sort the 
+    Instead of heap, we can try to just sort the tweet counts. But sorting is nlogn time operation and using a heap to find 
+    the top 10 max value is klogn operation.
     """
 
     def __init__(self):
