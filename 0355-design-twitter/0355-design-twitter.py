@@ -27,7 +27,7 @@ class Twitter:
         feed_limit = 10
         # Get all the tweets made the user and the followees
         tweets = self._get_tweets(userId)
-        # Retrieve 10 most recent tweets (10 highest tweet IDs)
+        # Retrieve 10 most recent tweets (10 highest count out of tuple (count, tweetId))
         heapq.heapify(tweets)
         while tweets and feed_limit > 0:  # O(klogn)
             feed.append(heapq.heappop(tweets)[1])
@@ -55,7 +55,7 @@ class Twitter:
         for followee in followees:
             if followee in self.tweets:
                 tweets.extend(self.tweets[followee])
-        return [(count, tweet) for count, tweet in tweets]  # since we are using a max heap, the numbers need to be -ve
+        return [(count, tweet) for count, tweet in tweets] 
 
             
         
