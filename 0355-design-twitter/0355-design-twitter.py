@@ -51,7 +51,7 @@ class Twitter:
             followees = [userId]
         # Get all the tweets that the followees made
         tweets = []
-        # Check if followee is there in followees dict, and then see if the followee has made any tweets
+        # Check if the followee has made any tweets
         for followee in followees:
             if followee in self.tweets:
                 tweets.extend(self.tweets[followee])
