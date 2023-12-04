@@ -1,5 +1,9 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
+        """
+        Time: O(2n)~=O(n), where n is len(nums)
+        Space: O(n), since we are using a set
+        """
         visited = set(nums)
         output = 0
 
