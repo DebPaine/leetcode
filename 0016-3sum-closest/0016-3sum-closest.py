@@ -3,6 +3,10 @@ class Solution:
         """
         Time: O(n**2), where n is len(nums)
         Space: O(1)
+        
+        We need to find the total which is closest to target. So basically, we need
+        to find the smallest absolute difference between target and total, and then 
+        store the total in closest variable.
         """
         closest = math.inf
         nums.sort()
