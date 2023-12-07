@@ -7,13 +7,16 @@ class Solution:
         We basically have to create a decision tree: 
         1. Left branch we will add the current num 
         2. Right branch we will add empty list
+        Just write down all the subsets of an input list and see what logic we are using. Either we will include
+        the current number or we won't. We keep doing this for every number in the input list.
+        
         Do note that we are appending to output inside of the base case.
         """
         output = []
 
         def backtrack(i, subset):
             if i >= len(nums):
-                output.append(subset.copy()) # O(n)time, make a copy of subset and then append it since it's a reference
+                output.append(subset[:]) # O(n)time, make a copy of subset and then append it since it's a reference
                 return
             
             # Include the left branch of the decision tree, which means include the current nums[i] 
