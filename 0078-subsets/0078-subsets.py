@@ -3,6 +3,11 @@ class Solution:
         """
         Time: O(n*2**n) since we are generating all the non-duplicate subsets, and we are copying the subset
         Space: O(n) since we are using the internal call stack
+
+        We basically have to create a decision tree: 
+        1. Left branch we will add the current num 
+        2. Right branch we will add empty list
+        Do note that we are appending to output inside of the base case.
         """
         output = []
 
