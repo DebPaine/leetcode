@@ -4,6 +4,9 @@ class Solution:
         Time: O(n*2**n) since we are generating all the non-duplicate subsets, and we are copying the subset
         Space: O(n) since we are using the internal call stack
 
+        Eg: nums = [1, 2, 3]
+        Write down all the possible subsets of nums: [1], [1,2], [1,2,3] etc. We can see that we have subsets where 
+        we will always have 1, always have 2, and always have 3.
         We basically have to create a decision tree: 
         1. Left branch we will add the current num 
         2. Right branch we will add empty list
