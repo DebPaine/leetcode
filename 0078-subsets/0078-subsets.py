@@ -11,7 +11,8 @@ class Solution:
         1. Left branch we will add the current num 
         2. Right branch we will add empty list
         Just write down all the subsets of an input list and see what logic we are using. Either we will include
-        the current number or we won't. We keep doing this for every number in the input list.
+        the current number or we won't. We keep doing this for every number in the input list. Also, to understand
+        this problem better, we can write down the total no. of subsets possible which is 2**n.
         
         Do note that we are appending to output inside of the base case.
         """
