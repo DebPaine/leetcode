@@ -34,10 +34,10 @@ class Solution:
                 l += 1  # low pointer will have to move since we want all low values to the left of it
                 mid += 1  # mid pointer will have to move to the next unknown value
             elif nums[mid] == 1:
-                mid += 1
+                mid += 1  # mid pointer moves to the next unknown value
             elif nums[mid] == 2:
                 nums[mid], nums[r] = nums[r], nums[mid]
-                r -= 1
+                r -= 1  # right pointer will have to move since we want all the hight values to the right of it
 
         
         
