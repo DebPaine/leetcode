@@ -31,7 +31,7 @@ class Solution:
         while mid <= r:
             if nums[mid] == 0:
                 nums[mid], nums[l] = nums[l], nums[mid]
-                l += 1
+                l += 1  # low pointer will have to move since we want all low values to the left of it
                 mid += 1  # mid pointer will have to move to the next unknown value
             elif nums[mid] == 1:
                 mid += 1
