@@ -37,7 +37,7 @@ class Solution:
                 mid += 1  # mid pointer moves to the next unknown value
             elif nums[mid] == 2:
                 nums[mid], nums[r] = nums[r], nums[mid]
-                r -= 1  # right pointer will have to move since we want all the hight values to the right of it
+                r -= 1  # right pointer will have to move since we want all the high values to the right of it
 
         
         
