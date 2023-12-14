@@ -18,18 +18,31 @@ class Solution:
         """
         output = []
 
-        def backtrack(i, subset):
-            if i >= len(nums):
-                output.append(subset[:]) # O(n)time, make a copy of subset and then append it since it's a reference
-                return
+        # def backtrack(i, subset):
+        #     if i >= len(nums):
+        #         output.append(subset[:]) # O(n)time, make a copy of subset and then append it since it's a reference
+        #         return
             
-            # Include the left branch of the decision tree, which means include the current nums[i] 
-            backtrack(i+1, subset + [nums[i]])
-            # Include the right branch of the decision tree, which means not to include nums[i]
-            backtrack(i+1, subset + [])
-            return
+        #     # Include the left branch of the decision tree, which means include the current nums[i] 
+        #     backtrack(i+1, subset + [nums[i]])
+        #     # Include the right branch of the decision tree, which means not to include nums[i]
+        #     backtrack(i+1, subset + [])
+        #     return
+
+        # backtrack(0, [])
+        # return output
+
+        def backtrack(start, subset):
+            output.append(subset[:])
+            # if start >= len(nums):  # we don't need to return explicitly since range will be empty range(3,3)
+            #     return
+
+            for i in range(start, len(nums)):
+                subset.append(nums[i])
+                backtrack(i+1, subset)
+                subset.pop()
 
         backtrack(0, [])
         return output
-
+            
         
