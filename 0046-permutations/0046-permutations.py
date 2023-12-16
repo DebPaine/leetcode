@@ -6,15 +6,15 @@ class Solution:
         """
         output = []
 
-        def backtrack(index):
-            if index >= len(nums):
+        def backtrack(start):
+            if start >= len(nums):
                 output.append(nums[:])
                 return
 
-            for i in range(index, len(nums)):
-                nums[i], nums[index] = nums[index], nums[i]
-                backtrack(index+1)
-                nums[i], nums[index] = nums[index], nums[i]
+            for i in range(start, len(nums)):
+                nums[start], nums[i] = nums[i], nums[start]
+                backtrack(start+1)
+                nums[start], nums[i] = nums[i], nums[start]
 
         backtrack(0)
         return output
