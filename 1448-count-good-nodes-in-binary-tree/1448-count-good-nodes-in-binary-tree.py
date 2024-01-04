@@ -15,15 +15,15 @@ class Solution:
         good_nodes = 0
 
         def dfs(node, max_val):
-            if node is None:
-                return None
             nonlocal good_nodes
+            if not node:
+                return None
 
             if node.val >= max_val:
                 good_nodes += 1
-            
+
             dfs(node.left, max(max_val, node.val))
             dfs(node.right, max(max_val, node.val))
-        
+
         dfs(root, -math.inf)
         return good_nodes
