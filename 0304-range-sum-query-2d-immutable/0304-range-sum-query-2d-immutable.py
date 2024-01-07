@@ -5,6 +5,10 @@ class NumMatrix:
         Time: O(m*n) creating the prefix matrix, calculating prefix sum is O(1)
         Space: O(m*n) storing the prefix matrix
 
+        Steps:
+        1. Create the prefix matrix and store all the prefix values (sum of all values to the left and top of the current value)
+        2. Use the prefix matrix to get the prefix sum of the respective matrix block
+        
         https://www.youtube.com/watch?v=WibxoqMSMCw
         """
         self.prefix_matrix = [[0]*(len(matrix[0])+1) for _ in range(len(matrix)+1)]
