@@ -1,11 +1,15 @@
 class Solution:
     def matrixBlockSum(self, mat: List[List[int]], k: int) -> List[List[int]]:
         """
-        Steps:
-        1. Create a prefix sum matrix
-        2. Add padding of k zeroes all around the prefix matrix of size len(mat)xlen(mat[0])
-        3. Fill the prefix matrix but exclude the k padding on each side of the matrix
+        Time: O(m*n), where m is rows and n is cols
+        Space: O(m*n), as we are storing the prefix sum matrix
 
+        Steps:
+        1. Read and understand the problem first, draw it out
+        2. Create a prefix sum matrix with padding of 1
+        3. Compute the block sum using the prefix sum matrix
+
+        Note:
         We don't have to add padding of k on either side of the prefix sum matrix, we can just add a single padding.
         This will simply calculating the block sum in answer matrix and we can use the following trick:
         r1, c1 = max(0, i-k), max(0, j-k)
