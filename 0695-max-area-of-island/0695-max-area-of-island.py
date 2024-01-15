@@ -15,9 +15,7 @@ class Solution:
                 dfs(m - 1, n)
                 dfs(m, n + 1)
                 dfs(m, n - 1)
-                return area
-            else:
-                return 0
+                return 
 
         for i in range(len(grid)):
             for j in range(len(grid[0])):
