@@ -23,7 +23,9 @@ class Solution:
         # prev = slow
         # curr = prev.next
         # prev.next = None
-
+        
+        # Note: use the same slow pointer to break the link, don't use another pointer like prev above and try to manipulate 
+        # the LL as it might cause some issue, investigate this more
         curr = slow.next
         slow.next = None  # as the mid point will be the end of the reordered LL 
         prev = None
