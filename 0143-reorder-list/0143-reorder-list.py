@@ -7,34 +7,34 @@ class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
         Do not return anything, modify head in-place instead.
-        
-        Time: O(n), where is the total no. of nodes present in LL
+        Time: O(n), where n is len(LL)
         Space: O(1)
         """
-        # Find the mid-point of the LL using fast and slow pointer method
+        # 1. Find midpoint of LL
         slow = fast = head
-
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
 
-        mid = slow.next
-        slow.next = None   # slow is pointing to the middle node which at the end will be the last node
+        # 2. Reverse the direction of the links in the second half of LL
+        # Below is wrong and causes a cycle in LL, revisit this and figure out why!
+        # prev = slow
+        # curr = prev.next
+        # prev.next = None
 
-        # Reverse the second half of the LL
+        curr = slow.next
+        slow.next = None
         prev = None
-        curr = mid
         while curr:
             nxt = curr.next
             curr.next = prev
             prev = curr
             curr = nxt
 
-        # Rearrange the links based on L0 -> Ln -> L1 -> Ln-1 -> ...
+        # 3. Using a pointer to reorder the LL
         p1 = head
-        p2 = prev  # last element in the LL
-        
-        while p1 and p2:   # we don't need p1.val != p2.val since at the end, they both will point to the last node
+        p2 = prev
+        while p1 and p2:
             p1_next = p1.next
             p1.next = p2
             p1 = p1_next
@@ -43,4 +43,4 @@ class Solution:
             p2.next = p1
             p2 = p2_next
 
-        return head
+
