@@ -9,6 +9,8 @@ class Solution:
         Do not return anything, modify head in-place instead.
         Time: O(n), where n is len(LL)
         Space: O(1)
+
+        Revisit this as this is a confusing problem!
         """
         # 1. Find midpoint of LL
         slow = fast = head
