@@ -20,7 +20,7 @@ class Solution:
 
         # 2. Reverse the direction of the links in the second half of LL
         # Below is wrong and causes a cycle in LL, as we are reusing prev pointer which is mid, and we are again using it in 
-        # the below while loop to reorder the second half of LL
+        # the below while loop to reverse the second half of LL
         # prev = slow
         # curr = prev.next
         # prev.next = None
