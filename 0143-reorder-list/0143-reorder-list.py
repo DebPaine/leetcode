@@ -19,13 +19,12 @@ class Solution:
             fast = fast.next.next
 
         # 2. Reverse the direction of the links in the second half of LL
-        # Below is wrong and causes a cycle in LL, revisit this and figure out why!
+        # Below is wrong and causes a cycle in LL, as we are reusing prev pointer which is mid, and we are again using it in 
+        # the below while loop to reorder the second half of LL
         # prev = slow
         # curr = prev.next
         # prev.next = None
         
-        # Note: use the same slow pointer to break the link, don't use another pointer like prev above and try to manipulate 
-        # the LL as it might cause some issue, investigate this more
         curr = slow.next
         slow.next = None  # as the mid point will be the end of the reordered LL 
         prev = None
