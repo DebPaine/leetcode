@@ -25,7 +25,7 @@ class Solution:
         # prev.next = None
 
         curr = slow.next
-        slow.next = None
+        slow.next = None  # as the mid point will be the end of the reordered LL 
         prev = None
         while curr:
             nxt = curr.next
