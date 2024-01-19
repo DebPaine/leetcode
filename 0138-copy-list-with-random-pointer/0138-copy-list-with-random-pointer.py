@@ -18,17 +18,20 @@ class Solution:
         We basically store the curr and new node mapping in our hashmap so that in the second
         pass we can rebuild all the next and random links.
         """
-        hashmap = {None: None}  # for cases where curr.next or curr.random is pointing to null
+
+        # We are basically just mapping when curr.next or curr.random is pointing to null, then we should also map 
+        # links[curr].next or links[curr].random (the new nodes we created) to null.
+        links = {None: None}  
         curr = head
 
         while curr:
-            hashmap[curr] = Node(curr.val)
+            links[curr] = Node(curr.val)
             curr = curr.next
-
+        
         curr = head
         while curr:
-            hashmap[curr].next = hashmap[curr.next]
-            hashmap[curr].random = hashmap[curr.random]
+            links[curr].next = links[curr.next]
+            links[curr].random = links[curr.random]
             curr = curr.next
 
-        return hashmap[head]
+        return links[head]
