@@ -8,8 +8,7 @@ class Solution:
         3. Compare count of text with count of 'balloon', use the following:
         text_count[char]//balloon_count[char]
         The above formula should give an integer of how many a particular char in balloon can be used. 
-        Eg: text = "loonbalxballpoon"
-        count for letter "l"= 4//2 = 2
+        Eg: text = "loonbalxballpoon", count for letter "l"= 4//2 = 2
         We then keep counting all the letters in text and checking the min count of the letter, this 
         will determine which letter is present the least in text and will tell us that this is
         the min amount of 'balloons' that can be formed using text
