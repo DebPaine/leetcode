@@ -1,6 +1,9 @@
 class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
         """
+        Time: O(n), where n is len(text) 
+        Space: O(n), as we are using Counter to store the char counts
+
         Steps:
         1. Count the chars in 'balloon'. We have to see min how 
         many letters are needed to form the word 'balloon'
