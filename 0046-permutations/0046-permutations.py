@@ -1,4 +1,4 @@
-class Solution:
+class Solution: 
     def permute(self, nums: List[int]) -> List[List[int]]:
         """
         Time: O(n!), since permutation for any number is n! and n is len(nums)
