@@ -30,16 +30,27 @@ class Solution:
         # elif p.val >= root.val and q.val >= root.val:
         #     return self.lowestCommonAncestor(root.right, p, q)
         
+        # Iterative DFS (with stack)
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            if p.val < node.val and q.val < node.val:
+                stack.append(node.left)
+            elif p.val > node.val and q.val > node.val:
+                stack.append(node.right)
+            else:
+                return node
 
+			
         # Iterative DFS (without stack)
-        if not root:
-            return None
-        while root:
-            if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
-                return root
-            # If both p and q are smaller than root then we have to go to the left subtree
-            elif p.val <= root.val and q.val <= root.val:
-                root = root.left
-            # If both p and q are greater than root then we have to go to the right subtree
-            elif p.val >= root.val and q.val >= root.val:
-                root = root.right
+        # if not root:
+        #     return None
+        # while root:
+        #     if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
+        #         return root
+        #     # If both p and q are smaller than root then we have to go to the left subtree
+        #     elif p.val <= root.val and q.val <= root.val:
+        #         root = root.left
+        #     # If both p and q are greater than root then we have to go to the right subtree
+        #     elif p.val >= root.val and q.val >= root.val:
+        #         root = root.right
