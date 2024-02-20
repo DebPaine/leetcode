@@ -23,6 +23,7 @@ class Solution:
         if s1_count == s2_count:
             return True
 
+        # Here, we have to iterate via i and we have to check the count of elements between i and i+sw
         for i in range(len(s2)-sw):
             s2_count[s2[i]] -= 1
             if s2_count[s2[i]] == 0:
