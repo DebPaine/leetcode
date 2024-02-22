@@ -24,7 +24,7 @@ class Solution:
 
         # O(klogn) time
         while counter > 0:  # O(k) time
-            output.append(heapq.heappop(distances)[1])  # O(logn) time
+            output.append(heapq.heappop(distances)[1])  # O(logn) time, will pop the tuple and we get coordinates
             counter -= 1
 
         return output
