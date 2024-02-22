@@ -6,7 +6,7 @@ class Solution:
 
         Steps:
         1. Calculate the distances and push them to an array
-        2. Convert the distances list into a min heap using heapify
+        2. Convert the (distance, coordinates) tuple list into a min heap using heapify
         3. Keep popping the min distance from the min heap and add the points to the output
         4. Return the first k elements of the output as there might be more than one point which has the same distance
         """
