@@ -7,26 +7,22 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
-        Time: O(n), where n is no. of nodes in the tree
-        Space: O(max(width)), as we need to store all the nodes for a given level in a queue
+        Time: O(n), where n is the no. of nodes
+        Space: O(n)
 
-        This is just a BFS
+        We just go level by level and save the nodes in the same level in a subset array
         """
         if root is None:
             return None
 
         output = []
-        queue = deque([root]) 
-
-        while queue:
-            level = []
-            for _ in range(len(queue)):
-                node = queue.pop()
-                level.append(node.val)
-                if node.left:
-                    queue.appendleft(node.left)
-                if node.right:
-                    queue.appendleft(node.right)
-            output.append(level) 
-
+        q = deque([root])
+        while q:
+            subset = []
+            for _ in range(len(q)):
+                node = q.pop()
+                subset.append(node.val)
+                if node.left: q.appendleft(node.left)
+                if node.right: q.appendleft(node.right)
+            output.append(subset)
         return output
