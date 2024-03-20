@@ -9,6 +9,8 @@ class Solution:
         """
         Time: O(n), where n is no. of nodes in the tree
         Space: O(m), where m is no. of nodes in the queue
+        
+        Algorithm: Use BFS to find the closest leaf node to the root node and that will be the min depth
         """
         if not root:
             return 0
