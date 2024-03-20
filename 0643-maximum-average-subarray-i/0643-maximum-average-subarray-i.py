@@ -1,5 +1,9 @@
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
+        """
+        Time: O(n), where n is len(nums)
+        Space:  O(1)
+        """
         if k > len(nums):  # k, or sliding window length should not be larger than length of nums
             return -1.0
 
