@@ -3,6 +3,8 @@ class Solution:
         """
         Time: O(n), where n is len(nums)
         Space:  O(1)
+        
+        Algorithm: Sliding window
         """
         if k > len(nums):  # k, or sliding window length should not be larger than length of nums
             return -1.0
