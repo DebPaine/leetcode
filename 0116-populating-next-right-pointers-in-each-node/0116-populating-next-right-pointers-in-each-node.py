@@ -37,28 +37,17 @@ class Solution:
         # BFS without a queue
         dummy = Node(999999)
         head = root  
-        while head:
+        while head:  # head pointer to traverse the levels top to bottom
             prev = dummy
             curr = head
-            while curr:
+            while curr:  # curr pointer to traverse the level left to right
                 if curr.left:
                     prev.next = curr.left
                     prev = prev.next
                 if curr.right:
                     prev.next = curr.right
                     prev = prev.next
-                curr = curr.next
+                curr = curr.next  # this is actually where we are going left to right in a level
             head = dummy.next
             dummy.next = None
         return root
-
-
-
-
-
-
-
-
-
-
-
