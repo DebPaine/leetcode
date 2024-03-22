@@ -7,29 +7,19 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         """
-        Time: O(p*q)
-        Space: O(max(p,q)) worst case if both the trees are LL, else O(log(max(p,q))) if they are balanced 
-        
-        The only trick here is to get the three base cases right, otherwise it's easy as we only have to go through the nodes
+        Time: O(p or q), where p or q are the total no. of nodes in both the tree 
+        Space: O(p or q), if tree is linked list else O(logp or logq) if tree is balanced
+
+        Algorithm: The base cases are the main thing and easy to understand, then we just do
+        a preorder traversal through both the trees
         """
-        def dfs(t1, t2):
-            # If t1 and t2 are both None, then they are the same so we return True
-            if not t1 and not t2:
-                return True
-            # If one of them is None, then we return False
-            if not t1 or not t2:
-                return False
-            # If the values don't match, then also we return False
-            if t1.val != t2.val:
-                return False
+        if p is None and q is None:
+            return True
+        if p is None or q is None:
+            return False
+        if p.val != q.val:
+            return False
 
-            # We go through each node from t1 and t2 recursively and verify the above three conditions
-            left = dfs(t1.left, t2.left)
-            right = dfs(t1.right, t2.right)
-
-            # We only return True if both left and right subtrees return True
-            return left and right
-
-        return dfs(p, q)
-
-            
+        left = self.isSameTree(p.left, q.left)
+        right = self.isSameTree(p.right, q.right)
+        return left and right
