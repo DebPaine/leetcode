@@ -7,26 +7,25 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """
-        Time: O(n), where n is the no. of nodes in the tree
-        Space: O(n), if tree is LL else O(logn) if tree is balanced
+        Time: O(n), where n is no. of nodes in BST
+        Space: O(n) if BST is like linked list, O(logn) is BST is balanced
 
-        We just have to do inorder traversal as it will help us traverse the BST in smallest to largest order 
+        Algorithm: Inorder traversal 
         """
-        smallest = None
-        counter = k
+        kth_smallest = 0
+        count = k
 
         def dfs(node):
-            nonlocal smallest, counter
+            nonlocal kth_smallest, count
             if node is None:
                 return None
-
-            dfs(node.left)  
-            # The recursion will stop when counter becomes 0 and smallest won't be updated anymore   
-            if counter == 0:
+            
+            dfs(node.left)
+            if count == 0:
                 return None
-            smallest = node.val
-            counter -= 1
+            kth_smallest = node.val
+            count -= 1
             dfs(node.right)
 
         dfs(root)
-        return smallest
+        return kth_smallest
