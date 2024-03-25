@@ -7,26 +7,28 @@
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         """
-        Time: O(n) where n is the len(preorder) or len(inorder) since both are same length
-        Space: O(n) due to inorder_map and recursion stack 
-        
-        The first value of preorder will always be the root of a subtree. We then have to find this value in 
-        preorder, which will help us know how big are the left and right subtrees. We can then use this to see
-        the sizes of left and right subtrees in preorder, which will tell us the roots of the left and right subtrees.
+        Time: O(n), if n is the no. of nodes in the tree
+        Space: O(n) whether tree is LL or balanced as we are using additional hashmap to store inorder key: value
+
+        Algorithm:
+        1. The first element of preorder during recursive calls will represent the root of the subtree
+        2. Then we find the above element in inorder array, this will represent the pivot point where
+        all the elements to the left of the pivot will represent the nodes in the left subtree and elements
+        to the right will represent elements on the right subtree
+        3. We then do recursion based on the pivot point and go through the preorder and inorder arrays and 
+        construct the binary tree
         """
         inorder_map = {val: i for i, val in enumerate(inorder)}
 
-        def dfs(p, i):
-            if not preorder or not inorder:  # since both lengths of preorder and inorder are the same
+        def helper(preorder, inorder):
+            if not preorder or not inorder:
                 return None
-
-            root = TreeNode(preorder[0])
-            # pivot = inorder.index(preorder[0])  # .index is O(n) operation so it's inefficient
-            pivot = inorder_map[preorder[0]]
-            root.left = self.buildTree(preorder[1:pivot+1], inorder[:pivot])
-            root.right = self.buildTree(preorder[pivot+1:], inorder[pivot+1:])
-            return root
+            root = preorder[0]
+            # pivot = inorder.index(root)  # inefficient as .index is O(n) operation
+            pivot = inorder_map[root]
+            root_node = TreeNode(root)
+            root_node.left = self.buildTree(preorder[1:pivot+1], inorder[:pivot])
+            root_node.right = self.buildTree(preorder[pivot+1:], inorder[pivot+1:])
+            return root_node
         
-        return dfs(preorder, inorder)
-            
-
+        return helper(preorder, inorder)
