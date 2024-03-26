@@ -8,49 +8,36 @@
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         """
-        Time: O(n) if BST is LL, else O(logn) is tree is balanced
-        Space: O(1) for iterative approach without stack, else O(n) if BST is LL or O(logn) if it's balanced
+        Time: O(n), where n is the no. of nodes in the tree
+        Space: O(n) if tree is LL, O(logn) if tree is balanced
 
-        For iterative approach without stack, we don't really need a stack since BST has a defined structure 
-        where left child is smaller and right child is smaller than current node. So, traversing it becomes 
-        easier and we also don't need backtracking. We can use an explicit stack for iterative approach, but 
-        it won't be useful as a stack helps us in keeping track of which nodes to visit next and here in BST, 
-        we already know what to visit next as per the given conditions.
+        Algorithms:
+        1. General algorithm for LCA in binary trees, not just BST
+        We can go down the tree and see if we find node with value p or q
+
+        2. BST algorithm
+        We can use the property of BST that left child will be smaller and
+        right child will be greater than parent. If both p and q are smaller
+        than current node, then we have to go to the left subtree, else go to 
+        the right subtree. We will return the current node when we find a split point.
         """
-        # Recursive DFS
+        # General algorithm for LCA for Binary tree, not just BST
         # if not root:
         #     return None
-        # # p < q  or q < p, both can be the inputs
-        # if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
+        # if root.val == p.val or root.val == q.val:
         #     return root
-        # # If both p and q are smaller than root then we have to go to the left subtree
-        # elif p.val <= root.val and q.val <= root.val:
-        #     return self.lowestCommonAncestor(root.left, p, q)
-        # # If both p and q are greater than root then we have to go to the right subtree
-        # elif p.val >= root.val and q.val >= root.val:
-        #     return self.lowestCommonAncestor(root.right, p, q)
         
-        # Iterative DFS (with stack)
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            if p.val < node.val and q.val < node.val:
-                stack.append(node.left)
-            elif p.val > node.val and q.val > node.val:
-                stack.append(node.right)
-            else:
-                return node
+        # left = self.lowestCommonAncestor(root.left, p, q)
+        # right = self.lowestCommonAncestor(root.right, p, q)
+        # if left and right:
+        #     return root
+        # else:
+        #     return left or right
 
-			
-        # Iterative DFS (without stack)
-        # if not root:
-        #     return None
-        # while root:
-        #     if p.val <= root.val <= q.val or q.val <= root.val <= p.val:
-        #         return root
-        #     # If both p and q are smaller than root then we have to go to the left subtree
-        #     elif p.val <= root.val and q.val <= root.val:
-        #         root = root.left
-        #     # If both p and q are greater than root then we have to go to the right subtree
-        #     elif p.val >= root.val and q.val >= root.val:
-        #         root = root.right
+        # BST algorithm using it's unique properties: left child smaller and right child greater than parent
+        if p.val < root.val and q.val < root.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        elif p.val > root.val and q.val > root.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        elif p.val <= root.val <= q.val or q.val <= root.val <= p.val:
+            return root
