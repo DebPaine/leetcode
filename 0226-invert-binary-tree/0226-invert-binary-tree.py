@@ -9,6 +9,10 @@ class Solution:
         """
         Time: O(n), where n is the no. of nodes in the tree
         Space: O(n) if tree is LL, O(logn) if tree is balanced
+        
+        Algorithm:
+        Go through the nodes and swap it's children.
+        Note: We are not just swapping the children's values, we are also swapping the entire subtrees
         """
         if not root:
             return None
