@@ -7,41 +7,41 @@
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         """
-        Time: O(s*t), where s is the no. of nodes in root and t is the no. of nodes in t
-        Space: O(max(s,t)) worst case, else O(log(max(s,t)))
+        Time: O(n), where n is no. of nodes in the tree
+        Space: O(n) is tree is LL, else O(logn) if tree is balanced
 
-        This is an extension of 100. Same Tree problem
-        We are first going through each node in root and comparing it with subRoot. We then check if subRoot
-        is a subTree of root or not. If it's not, then we go to the left and right subtrees of root and 
-        start comparing again with subRoot if it's subtree or not and we keep doing this recursively. 
+        Algorithm:
+        Pretty simple once you think about it intuitively. We first traverse via dfs in 
+        root tree and check which node val is equal to subRoot node val. We also check if the 
+        subRoot starting from the equal nodes by traversing the tree and subRoot together.
+        Note: Understand the base cases for dfs and helper functions as they are intuitive
         """
-        # Check all the base cases, it can be simplified but wrote it explicitly for better understanding
-        if not root and not subRoot:  # if both root and subRoot are None, then they subRoot is subTree
-            return True
-        if not root and subRoot:  # if root is None then subRoot can't be a subtree
-            return False
-        if root and not subRoot:  # if subRoot is None then it is subtree of root since root has None nodes
-            return True
+        def helper(t1, t2): 
+            if not t1 and not t2:
+                return True
+            if not t1 and t2 or t1 and not t2:
+                return False
+            if t1.val != t2.val:
+                return False
 
-        # We use helper function at each node of root to see if subRoot is a subtree or not
-        if self.same_tree(root, subRoot):
-            return True
-        else:
-            # If subRoot is not subtree then keep searching left and right subtrees of root
-            left = self.isSubtree(root.left, subRoot)
-            right = self.isSubtree(root.right, subRoot)
-            return left or right  # return if either left or right subtrees of root have subRoot as subtree
+            left = helper(t1.left, t2.left)
+            right = helper(t1.right, t2.right)
+            return left and right
 
-    def same_tree(self, s, t):
-        # Same as the Same tree problem, go node by node and see if the values match in both the trees
-        if not s and not t:
-            return True
-        if not s or not t:
-            return False
-        if s.val != t.val:
-            return False
-        
-        left = self.same_tree(s.left, t.left)
-        right = self.same_tree(s.right, t.right)
-        return left and right
-    
+
+        def dfs(t1, t2):
+            if not t1:
+                return False
+            if not t2:
+                return True
+            if not t1 and not t2:
+                return True
+
+            if t1.val == t2.val and helper(t1, t2):
+                return True
+            
+            left = dfs(t1.left, t2)
+            right = dfs(t1.right, t2)
+            return left or right
+
+        return dfs(root, subRoot)
