@@ -7,25 +7,26 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """
-        Time: O(n), where n is no. of nodes in BST
-        Space: O(n) if BST is like linked list, O(logn) is BST is balanced
+        Time: O(n), where n is no. of nodes in the tree
+        Space: O(n) if tree is LL, O(logn) if tree is balanced
 
-        Algorithm: Inorder traversal 
+        Algorithm:
+        We can use inorder traversal to find the k-smallest elements in a BST.
         """
-        kth_smallest = 0
-        count = k
+        counter = k
+        output = None
 
         def dfs(node):
-            nonlocal kth_smallest, count
-            if node is None:
+            nonlocal counter, output
+            if not node:
                 return None
             
             dfs(node.left)
-            if count == 0:
+            if counter < 1:
                 return None
-            kth_smallest = node.val
-            count -= 1
+            output = node.val
+            counter -= 1
             dfs(node.right)
 
         dfs(root)
-        return kth_smallest
+        return output
