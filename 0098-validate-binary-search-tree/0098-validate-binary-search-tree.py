@@ -13,8 +13,8 @@ class Solution:
         Algorithm:
         Our first thought will be to go down the tree using dfs and compare left and right
         node values with parent node value. But we can't directly access the parent node. So,
-        we need to keep track of the lower and upper limit for each node as we go down the tree,
-        essentially we are just keep track of the boundary between which the node value is allowed.
+        we need to keep track of the lower and upper limit for each node as we go down the tree.
+        Essentially we are just keeping track of the boundary conditions between which the node value is allowed.
         """
         def dfs(node, lower, upper):
             if not node:
