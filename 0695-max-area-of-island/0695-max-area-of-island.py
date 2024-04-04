@@ -1,27 +1,30 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         """
-        Time: O(m*n), where m is len(grid) and n is len(grid[0]), as we are going over each element in the grid
-        Space: O(m*n), as the worst case scenario will have all the elements in the grid as 1
+        Time: O(rows*cols)
+        Space: O(max(rows, cols))
+        Algorithm:
+        Very similar to Number of Islands or Flood Fill problems, we have to traverse cells which 
+        are 1 using DFS and keep track of the area of the current traversal. We then compare it 
+        with the max area and see which is bigger.
         """
         max_area = 0
+        rows, cols = len(grid), len(grid[0])
 
-        def dfs(m, n):
+        def dfs(r, c):
             nonlocal area
-            if 0 <= m < len(grid) and 0 <= n < len(grid[0]) and grid[m][n] == 1:
+            if 0 <= r < rows and 0 <= c < cols and grid[r][c] == 1:
                 area += 1
-                grid[m][n] = 0
-                dfs(m + 1, n)
-                dfs(m - 1, n)
-                dfs(m, n + 1)
-                dfs(m, n - 1)
-                return 
+                grid[r][c] = 0
+                dfs(r+1, c)
+                dfs(r, c+1)
+                dfs(r-1, c)
+                dfs(r, c-1)
 
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == 1:
-                    area = 0
-                    dfs(i, j)
-                    max_area = max(max_area, area)
+        for i in range(rows):
+            for j in range(cols):
+                area = 0
+                dfs(i, j)
+                max_area = max(max_area, area)
 
         return max_area
