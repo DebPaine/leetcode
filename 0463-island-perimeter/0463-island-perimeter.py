@@ -6,7 +6,7 @@ class Solution:
         Time: O(rows*cols)
         Space: O(rows*cols)
 
-        Algorithm 2: Without using recursive DFS, we can just traverse the grid using nested loops
+        Algorithm 2: Without using recursive DFS, we can just traverse the grid using nested loops.
         Time: O(rows*cols)
         Space: O(1), since we don't need a call stack for recursion as compared to above algorithm
         """
