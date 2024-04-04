@@ -3,6 +3,7 @@ class Solution:
         """
         Time: O(rows*cols)
         Space: O(max(rows, cols))
+        
         Algorithm:
         We have to traverse the grid using either BFS or DFS and only traverse when cell is "1". As we 
         traverse, we have to keep marking the cells to something other than 1, 0 in this case, so that 
