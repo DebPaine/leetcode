@@ -3,6 +3,7 @@ class Solution:
         """
         Time: O(rows*cols)
         Space: O(max(rows, cols))
+        
         Algorithm:
         Very similar to Number of Islands or Flood Fill problems, we have to traverse cells which 
         are 1 using DFS and keep track of the area of the current traversal. We then compare it 
