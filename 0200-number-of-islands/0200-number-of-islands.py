@@ -1,79 +1,31 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         """
-        Recursive DFS:
-        Time: O(m*n), where m is the rows and n is the cols
-        Space: O(m*n), as in worst case scenario, we can have all 1's and the call stack will have m*n dfs() recursive calls
-        
-        Iterative DFS:
-        Time: O(m*n)
-        Space: O(m*n)
-        For iterative approach, just remember to only enter DFS if grid[i][j] == "1" so that it's easier to count islands
-
-        Iterative BFS:
-        Time: O(m*n)
-        Space: O(m*n)
-
-        https://stackoverflow.com/questions/50901203/dfs-and-bfs-time-and-space-complexities-of-number-of-islands-on-leetcode
+        Time: O(rows*cols)
+        Space: O(max(rows, cols))
+        Algorithm:
+        We have to traverse the grid using either BFS or DFS and only traverse when cell is "1". As we 
+        traverse, we have to keep marking the cells to something other than 1, 0 in this case, so that 
+        we don't traverse it again. After we traversed the entire group of "1" cells, we can consider the
+        entire thing as an island and increase the counter by 1.
+        Note: We have to use a nested for loop to go through the grid cell by cell as there might be some
+        cells which we can't reach directly using DFS as we are only going on 4-directions.
         """
-        # # Recursive DFS
-        # islands = 0
-        # def dfs(m, n):
-        #     if 0 <= m < len(grid) and 0 <= n < len(grid[0]) and grid[m][n] == "1":
-        #         grid[m][n] = "0"
-        #         dfs(m+1, n)
-        #         dfs(m-1, n)
-        #         dfs(m, n+1)
-        #         dfs(m, n-1)
-        #         return True
-        #     else:
-        #         return False
-        # for i in range(len(grid)):
-        #     for j in range(len(grid[0])):
-        #         if dfs(i, j):
-        #             islands += 1
-        # return islands
-
-
-        # # Iterative DFS
-        # islands = 0
-        # def dfs(i, j):
-        #     nonlocal islands
-        #     stack = [(i, j)]
-        #     while stack:
-        #         m, n = stack.pop()
-        #         if 0 <= m < len(grid) and 0 <= n < len(grid[0]) and grid[m][n] == "1":
-        #             grid[m][n] = "0"
-        #             stack.append((m+1, n))
-        #             stack.append((m-1, n))
-        #             stack.append((m, n+1))
-        #             stack.append((m, n-1))
-        #     islands += 1
-
-        # for i in range(len(grid)):
-        #     for j in range(len(grid[0])):
-        #         if grid[i][j] == "1":
-        #             dfs(i, j)
-        # return islands
-
-        
-        # Iterative BFS
         islands = 0
-        def bfs(i, j):
-            nonlocal islands
-            queue = deque([(i, j)])
-            while queue:
-                m, n = queue.popleft()
-                if 0 <= m < len(grid) and 0 <= n < len(grid[0]) and grid[m][n] == "1":
-                    grid[m][n] = "0"
-                    queue.append((m+1, n))
-                    queue.append((m-1, n))
-                    queue.append((m, n+1))
-                    queue.append((m, n-1))
-            islands += 1
+        rows, cols = len(grid), len(grid[0])
 
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
+        def dfs(r, c):
+            if 0 <= r < rows and 0 <= c < cols and grid[r][c] == "1":
+                grid[r][c] = 0
+                dfs(r+1, c)
+                dfs(r, c+1)
+                dfs(r-1, c)
+                dfs(r, c-1)
+
+        for i in range(rows):
+            for j in range(cols):
                 if grid[i][j] == "1":
-                    bfs(i, j)
+                    dfs(i, j)
+                    islands += 1
+        
         return islands
