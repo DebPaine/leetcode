@@ -24,14 +24,14 @@ class Solution:
 
             for node, val in graph[source]:
                 if node not in visited:
-                    visited.add(node)
+                    visited.add(node)   # we need to add the current node to visited before doing dfs or we have stack overflow
                     result = dfs(node, target, weight*val)
                     if result != -1.0:
                         return result
             return -1.0
 
         for x, y in queries:
-            visited = set()
+            visited = set() # we need a new set for every query
             output.append(dfs(x, y, 1))
 
         return output
