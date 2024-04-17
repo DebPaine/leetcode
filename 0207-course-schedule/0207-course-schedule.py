@@ -11,7 +11,8 @@ class Solution:
         no more prerequisites. 
         Note: We do visited.remove(course) since we have done dfs on the course and found no cycle on it. 
         As we try to do DFS on the next courses, we don't want the same node to be present in the visited 
-        set or we will incorrectly say that there is a cycle.
+        set or we will incorrectly say that there is a cycle. So basically, we remove all the nodes from
+        visited which don't form a cycle and store the nodes which do form a cycle.
         """
         graph = defaultdict(list)
         visited = set()
