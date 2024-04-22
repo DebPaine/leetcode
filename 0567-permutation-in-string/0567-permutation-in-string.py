@@ -4,33 +4,26 @@ class Solution:
         Time: O(n), where n is len(s2)
         Space: O(len(s1)), since we are only storing len(s1) elements in the counts as it's the sliding window length
         
-        Steps:
+        Algorithm:
         1. We have to get the count of elements of s1
         2. We then have to check for every sw (len(s1)) in s2, are the counts same or not
         3. If the counts are the same, then we can say that permutation of s1 is present in s2, else return False
         """
-        s1_count = {}
-        s2_count = {}
         sw = len(s1)
-
-        for char in s1:
-            s1_count[char] = s1_count.get(char, 0) + 1
-        
-        for char in s2[:sw]:
-            s2_count[char] = s2_count.get(char, 0) + 1
-        
-        # Check if the above s1_count and s2_count is the same for the first iteration
-        if s1_count == s2_count:
+        s1_count = Counter(s1)
+        sw_count = Counter(s2[:sw])
+        if s1_count == sw_count:
             return True
 
-        # Here, we have to iterate via i and we have to check the count of elements between i and i+sw
-        for i in range(len(s2)-sw):
-            s2_count[s2[i]] -= 1
-            if s2_count[s2[i]] == 0:
-                del s2_count[s2[i]]
-            s2_count[s2[i+sw]] = s2_count.get(s2[i+sw], 0) + 1
+        left = 0
+        for right in range(sw, len(s2)):
+            sw_count[s2[right]] += 1
+            sw_count[s2[left]] -= 1
+            if sw_count[s2[left]] <= 0:
+                del sw_count[s2[left]]
 
-            if s1_count == s2_count:
+            if sw_count == s1_count:
                 return True
-
-        return False 
+            left += 1
+        
+        return False
