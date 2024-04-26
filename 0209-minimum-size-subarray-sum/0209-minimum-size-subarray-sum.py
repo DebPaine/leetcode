@@ -13,7 +13,7 @@ class Solution:
         current_sum = 0
         min_length = math.inf
 
-        while r < len(nums):
+        while l <= r < len(nums):
             current_sum += nums[r]
             while current_sum >= target:    # we will decrease the current sum till it's less than the target
                 min_length = min(min_length, r - l + 1)
