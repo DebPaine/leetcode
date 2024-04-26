@@ -15,41 +15,22 @@ class Solution:
         7. Keep iterating through the string by increasing the right pointer by one.
         """
         
-        # l = 0
-        # longest = 0
-        # char_count = Counter()
-        # max_char_count = 0
-
-        # for r in range(len(s)):
-        #     char_count[s[r]] += 1
-        #     sw = r - l + 1
-        #     max_char_count = max(max_char_count, char_count[s[r]])
-        #     replacements = sw - max_char_count
-
-        #     if replacements > k:
-        #         char_count[s[l]] -= 1
-        #         l += 1
-        #     else:  
-        #         longest = max(longest, sw)
-
-        # return longest
-
-        l, r = 0, 0
         char_count = [0]*26
         longest = 0
+        l = r = 0
 
         while l <= r < len(s):
-            char_count[ord(s[r]) - ord('A')] += 1  # char count of characters in sw
-            sw = r - l + 1  # sw length
-            replacements = sw - max(char_count)  # O(26) ~= O(1) time
+            char_count[ord(s[r]) - ord('A')] += 1
+            max_char = max(char_count)
+            sw = r - l + 1
+            replacement = sw - max_char
 
-            if replacements > k:
+            if replacement > k:
                 char_count[ord(s[l]) - ord('A')] -= 1
                 l += 1
             else:
                 longest = max(longest, sw)
-
             r += 1
-
+            
         return longest
 
