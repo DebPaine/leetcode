@@ -16,6 +16,8 @@ class Solution:
         nums.sort()     # O(nlogn) time
         
         for i, num in enumerate(nums):
+            if nums[i] > 0:     # if nums[i] > 0, we don't have to go further as the next numbers will be greater due to sorted array
+                return output
             # i > 0 since for i = 0, we will go over the value for the first time so it's fine
             # if nums[i] == nums[i-1], then there is no point going forward since we will get the same triplet
             if i > 0 and nums[i-1] == nums[i]:  # we can check the previous value is same or not as we have sorted tha array
