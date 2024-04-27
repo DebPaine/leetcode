@@ -18,8 +18,7 @@ class Solution:
             l, r = i+1, len(nums)-1
             while l < r:
                 total = num + nums[l] + nums[r]
-                # This formula is important and very simple to understand as we only need to 
-                # find the total which is closest to our target
+                # This formula is important and very simple to understand as we only need to find the total which is closest to our target
                 if abs(target-total) < abs(target-closest):
                     closest = total
 
