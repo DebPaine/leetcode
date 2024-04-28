@@ -2,7 +2,8 @@ class Solution:
     def fib(self, n: int) -> int:
         """
         Recursive solution:
-        Time: O(2**n), we can visualize this using a tree as we are exponentially generating new nodes
+        Time: O(2**n), without memoization we can visualize this using a tree as we are exponentially generating new nodes, 
+        O(n) with memoization
         Space: O(n), since we are using recursive stack and memoization
 
         Iterative solution:
