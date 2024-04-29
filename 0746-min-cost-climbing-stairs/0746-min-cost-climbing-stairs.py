@@ -3,6 +3,11 @@ class Solution:
         """
         Time: O(n) with memoization, O(2**n) without memoization
         Space: O(n)
+        
+        Algorithm:
+        This is a bit tricky problem, but it's similar to climbing stairs problem. We have
+        to do a postorder traversal of the decision tree (similar to height of binary tree problem), 
+        so that it's more efficient and we don't have calculate the path cost from top to bottom repeatedly.
         """
         memo = {}
 
