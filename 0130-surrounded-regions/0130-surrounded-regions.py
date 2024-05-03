@@ -3,6 +3,9 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
 
+        Time: O(m*n)
+        Space: O(max(m, n))
+
         Algorithm 1: Brute force DFS
         We can go through all the cells in the board and find the surrounded regions and mark it to O.
         This is very inefficient and messy to find the surrounded regions in the first place.
