@@ -7,6 +7,8 @@ class Solution:
         Algorithm:
         Very similar to subsets problem. Here, the difference is that we append to output only when we have
         k elements in the subarray.
+        Article:
+        https://medium.com/@CalvinChankf/a-general-approach-for-subsets-combinations-and-permutations-5c8fe3aff0ae
         """
         output = []
         def backtrack(start, combination):
