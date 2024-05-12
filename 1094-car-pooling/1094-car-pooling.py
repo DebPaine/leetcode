@@ -19,8 +19,8 @@ class Solution:
         have gotten in the car. But we also need to remember that between two start positions, the passengers 
         could have gotten off also, which means that there could be end position between two start positions. 
         So, we would have to remove those passengers and then calculate capacities.
-        Note: We have to use a heap to efficiently calculate the end position which is the smallest. We can 
-        also use brute force and use a loop but will be more efficient.
+        Note: We have to use a heap to efficiently calculate the end position which is the smallest and closest
+        to current starting position. We can also use brute force and use a loop but will be more efficient.
 
         TL;DR: 
         We just have to keep track of how many passengers are there in the car at any given point (or iteration). We 
