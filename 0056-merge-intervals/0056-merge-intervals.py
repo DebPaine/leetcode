@@ -1,5 +1,14 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        """
+        Time: O(nlogn)
+        Space: O(1), not counting the output array
+
+        Algorithm:
+        Pretty simple problem. We have to sort the intervals first based on the start values. We then see
+        if the current interval's start is less than the previous interval's end. If they are, then we have
+        an overlap, else we have separate intervals.
+        """
         intervals.sort(key=lambda x: x[0])  # sort the array based on the interval start times
         output = []
 
@@ -14,7 +23,7 @@ class Solution:
         # output.append([prev_start, prev_end]) 
         # return output
 
-        # Method 2
+        # Method 2: not using any pointers
         output = [intervals[0]]
         for start, end in intervals[1:]:
             previous_end = output[-1][1]
