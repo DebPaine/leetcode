@@ -43,7 +43,7 @@ class Solution:
 
         # Algorithm 2, using heap, if we don't know the constraints beforehand 
         trips.sort(key=lambda x: x[1])  # sort the trips array in ascending order of start
-        min_heap = []   # will store (end, passengers)
+        min_heap = []   # will store the ongoing trips (end, passengers) values
 
         curr_passengers = 0
         for passengers, start, end in trips:
@@ -52,7 +52,7 @@ class Solution:
             # for curr_pass, _, curr_end in trips:
             #     if curr_end <= start:
             #         curr_passengers -= curr_pass
-            
+
             # for this while loop, since each trip can be pushed and popped from heap only once, so time will be O(2n) instead of O(n*2)
             while min_heap and min_heap[0][0] <= start:
                 curr_pass = heapq.heappop(min_heap)[1]
