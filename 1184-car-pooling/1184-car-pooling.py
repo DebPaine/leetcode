@@ -52,7 +52,7 @@ class Solution:
             # for curr_pass, _, curr_end in trips:
             #     if curr_end <= start:
             #         curr_passengers -= curr_pass
-
+         
             # for this while loop, since each trip can be pushed and popped from heap only once, so time will be O(2n) instead of O(n*2)
             while min_heap and min_heap[0][0] <= start:
                 curr_pass = heapq.heappop(min_heap)[1]
@@ -62,5 +62,3 @@ class Solution:
                 return False
             heapq.heappush(min_heap, (end, passengers))
         return True
-
-            
