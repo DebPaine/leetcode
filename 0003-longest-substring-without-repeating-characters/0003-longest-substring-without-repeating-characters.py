@@ -14,7 +14,7 @@ class Solution:
         l = r = 0
 
         while l <= r < len(s):
-            while s[r] in chars:    # we need to use a loop here for inputs like "aab" or "dvdf"
+            while s[r] in chars:    # we need to use a loop here for inputs like "qrsvbspk"
                 chars.remove(s[l])
                 l += 1
 
