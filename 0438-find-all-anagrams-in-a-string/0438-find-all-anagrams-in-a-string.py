@@ -1,28 +1,32 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        """
-        Time: O(n), where n is len(s)
-        Space: O(n)
-
-        Algorithm:
-        We will use sliding window of size p to go through s and compare the element count in the
-        window to the element count of p and see if it matches or not. If it matches, then we will
-        append the starting point of sliding window to output.
-        """
+        # Solution 1: using Counter to count the letters in the sliding window every iteration
         p_count = Counter(p)
-        sw = len(p)
-        sw_count = Counter(s[:sw])
-        output = [0] if p_count == sw_count else []
-
-        left = 0
-        for right in range(sw, len(s)):
-            sw_count[s[right]] += 1
-            sw_count[s[left]] -= 1
-            if sw_count[s[left]] <= 0:
-                del sw_count[s[left]]
-            left += 1
-            
+        sw_count = Counter(s[:len(p)])
+        output = []
+        if sw_count == p_count:
+            output.append(0)
+        l = 0
+        for r in range(len(p), len(s)):
+            l += 1
+            sw_count = Counter(s[l:r+1])
             if sw_count == p_count:
-                output.append(left)
-            
+                output.append(l)
         return output
+
+        # Solution 2: add a letter count to sliding window and removing one every iteration
+        # p_count = Counter(p)
+        # sw_count = Counter(s[:len(p)])
+        # output = []
+        # if sw_count == p_count:
+        #     output.append(0)
+        # l = 0
+        # for r in range(len(p), len(s)):
+        #     sw_count[s[r]] += 1
+        #     sw_count[s[l]] -= 1
+        #     if sw_count[s[l]] == 0:
+        #         del sw_count[s[l]]
+        #     l += 1
+        #     if sw_count == p_count:
+        #         output.append(l)
+        # return output
