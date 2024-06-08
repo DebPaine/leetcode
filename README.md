@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0056-merge-intervals](https://github.com/DebPaine/leetcode/tree/master/0056-merge-intervals) |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/DebPaine/leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0217-contains-duplicate](https://github.com/DebPaine/leetcode/tree/master/0217-contains-duplicate) |
 | [1184-car-pooling](https://github.com/DebPaine/leetcode/tree/master/1184-car-pooling) |
 # Hash Table
@@ -39,3 +40,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/DebPaine/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
+# Dynamic Programming
+|  |
+| ------- |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/DebPaine/leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
