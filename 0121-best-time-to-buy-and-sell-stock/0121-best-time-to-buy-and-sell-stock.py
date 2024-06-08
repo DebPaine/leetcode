@@ -1,15 +1,16 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        """
-        Time: O(n), where n is the len(prices)
-        Space: O(1)
-        """
-        min_price = math.inf
-        max_profit = 0
+        # Brute force, TLE
+        # max_profit = 0
+        # for i in range(len(prices)):
+        #     for j in range(i, len(prices)):
+        #         profit = prices[j] - prices[i]
+        #         max_profit = max(max_profit, profit)
+        # return max_profit
 
+        min_price, max_profit = math.inf, 0
         for price in prices:
-            min_price = min(min_price, price)  # key here is to find the min price till now, essentially using a pointer to keep track of min_price
-            profit = price - min_price  # calculate profit using current day price and min_price
-            max_profit = max(max_profit, profit)  # see if this profit is max or not
-
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
         return max_profit
+        
