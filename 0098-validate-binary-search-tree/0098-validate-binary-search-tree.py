@@ -16,33 +16,26 @@ class Solution:
         we need to keep track of the lower and upper limit for each node as we go down the tree.
         Essentially, we are just keeping track of the boundary conditions between which the node value is allowed.
         """
-        # def dfs(node, lower, upper):
-        #     if not node:
-        #         return True
-        #     if not (lower < node.val < upper):
-        #         return False
-        #     left = dfs(node.left, lower, node.val)
-        #     right = dfs(node.right, node.val, upper)
-        #     return left and right
-        # return dfs(root, -math.inf, math.inf)
-
-        track = []
-        def dfs(node):
+        def dfs(node, lower, upper):
             if not node:
-                return
-
-            dfs(node.left)
-            track.append(node.val)
-            dfs(node.right) 
-        
-        dfs(root)
-
-        for i in range(1, len(track)):
-            if track[i] <= track[i-1]:
+                return True
+            if not (lower < node.val < upper):
                 return False
+            left = dfs(node.left, lower, node.val)
+            right = dfs(node.right, node.val, upper)
+            return left and right
+        return dfs(root, -math.inf, math.inf)
 
-        return True
+        # track = []
+        # def dfs(node):
+        #     if not node:
+        #         return
+        #     dfs(node.left)
+        #     track.append(node.val)
+        #     dfs(node.right) 
+        # dfs(root)
 
-
-
-
+        # for i in range(1, len(track)):
+        #     if track[i] <= track[i-1]:
+        #         return False
+        # return True
