@@ -40,6 +40,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/DebPaine/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0402-remove-k-digits](https://github.com/DebPaine/leetcode/tree/master/0402-remove-k-digits) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/DebPaine/leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
 # Sliding Window
 |  |
@@ -74,3 +75,15 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0098-validate-binary-search-tree](https://github.com/DebPaine/leetcode/tree/master/0098-validate-binary-search-tree) |
+# Stack
+|  |
+| ------- |
+| [0402-remove-k-digits](https://github.com/DebPaine/leetcode/tree/master/0402-remove-k-digits) |
+# Greedy
+|  |
+| ------- |
+| [0402-remove-k-digits](https://github.com/DebPaine/leetcode/tree/master/0402-remove-k-digits) |
+# Monotonic Stack
+|  |
+| ------- |
+| [0402-remove-k-digits](https://github.com/DebPaine/leetcode/tree/master/0402-remove-k-digits) |
