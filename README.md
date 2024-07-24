@@ -104,6 +104,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0238-product-of-array-except-self](https://github.com/DebPaine/leetcode/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/DebPaine/leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0435-non-overlapping-intervals](https://github.com/DebPaine/leetcode/tree/master/0435-non-overlapping-intervals) |
+| [1231-replace-elements-with-greatest-element-on-right-side](https://github.com/DebPaine/leetcode/tree/master/1231-replace-elements-with-greatest-element-on-right-side) |
 | [2058-concatenation-of-array](https://github.com/DebPaine/leetcode/tree/master/2058-concatenation-of-array) |
 ## Hash Table
 |  |
