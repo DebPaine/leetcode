@@ -104,6 +104,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0238-product-of-array-except-self](https://github.com/DebPaine/leetcode/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/DebPaine/leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0435-non-overlapping-intervals](https://github.com/DebPaine/leetcode/tree/master/0435-non-overlapping-intervals) |
+| [2058-concatenation-of-array](https://github.com/DebPaine/leetcode/tree/master/2058-concatenation-of-array) |
 ## Hash Table
 |  |
 | ------- |
@@ -179,4 +180,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/DebPaine/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
+## Simulation
+|  |
+| ------- |
+| [2058-concatenation-of-array](https://github.com/DebPaine/leetcode/tree/master/2058-concatenation-of-array) |
 <!---LeetCode Topics End-->
